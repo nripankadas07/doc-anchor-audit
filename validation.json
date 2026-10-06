@@ -1,0 +1,101 @@
+{
+  "name": "doc-anchor-audit",
+  "state": "VALIDATED",
+  "checks": [
+    {
+      "cwd": "source",
+      "expected_exit": 0,
+      "exit": 0,
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "-v"
+      ]
+    },
+    {
+      "cwd": "source",
+      "expected_exit": 0,
+      "exit": 0,
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "doc_anchor_audit.py"
+      ]
+    },
+    {
+      "cwd": "source",
+      "expected_exit": 0,
+      "exit": 0,
+      "command": [
+        "<python>",
+        "-m",
+        "build"
+      ]
+    },
+    {
+      "cwd": "source",
+      "expected_exit": 0,
+      "exit": 0,
+      "command": [
+        "<python>",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "<fixture>"
+      ]
+    },
+    {
+      "cwd": "source",
+      "expected_exit": 0,
+      "exit": 0,
+      "command": [
+        "<python>",
+        "-m",
+        "pip",
+        "check"
+      ]
+    },
+    {
+      "cwd": "empty directory",
+      "expected_exit": 0,
+      "exit": 0,
+      "command": [
+        "<cli>",
+        "--help"
+      ]
+    },
+    {
+      "cwd": "empty directory",
+      "expected_exit": 0,
+      "exit": 0,
+      "command": [
+        "<cli>",
+        "<fixture>"
+      ]
+    },
+    {
+      "cwd": "empty directory",
+      "expected_exit": 1,
+      "exit": 1,
+      "command": [
+        "<cli>",
+        "<fixture>"
+      ]
+    }
+  ],
+  "smoke": {
+    "schema": 1,
+    "documents": 6,
+    "checked_local_links": 7,
+    "external_links_unchecked": 4,
+    "findings": [],
+    "coverage_warnings": []
+  },
+  "python": "3.12.14",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "runtime_dependencies": []
+}
